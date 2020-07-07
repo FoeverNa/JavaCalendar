@@ -10,13 +10,17 @@ public class Prompt {
 
 		Scanner scanner = new Scanner(System.in);
 		Calendar cal = new Calendar();
-
+		
+		int month = 0;
+		int year = 0;
 
 		for (int i = 0;; i++) {
-
+			System.out.println("연도를 입력하세요:");
+			System.out.print(PROMPT);
+			year = scanner.nextInt();
 			System.out.println("달을 입력하세요:");
 			System.out.print(PROMPT);
-			int month = scanner.nextInt();
+			month = scanner.nextInt();
 
 			if (month == -1) {
 				System.out.println("Have a nice day!");
@@ -25,7 +29,7 @@ public class Prompt {
 				continue;
 			} else {
 
-				cal.printCalendar(2020, month);;
+				cal.printCalendar(year, month);;
 
 				System.out.println("");
 			}
