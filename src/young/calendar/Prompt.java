@@ -19,14 +19,13 @@ public class Prompt {
 			System.out.println("연도를 입력하세요.(exit: -1)");
 			System.out.print("YEAR> ");
 			year = scanner.nextInt();
-			
+				
 			if (year == -1) {
 				break;
 			}
 			System.out.println("월을 입력하세요:");
 			System.out.print("MONTH> ");
 			month = scanner.nextInt();
-			System.out.print("DAY> ");
 			
 			if (month >12 || month <1) {
 				System.out.println("잘못된 입력 입니다.");
