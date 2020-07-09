@@ -1,12 +1,37 @@
 package young.calendar;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
 
 public class Calendar {
 
 	private static final int[] MaxDays = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 	private static final int[] LeapMaxDays = { 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
+	private HashMap<Date, String> planMap;
 	
+	public Calendar() {
+		planMap = new HashMap<Date, String>();
+	
+	}
+	 
+	public void registerPlan(String strDate, String plan) throws ParseException {
+		
+		Date date = new SimpleDateFormat("yyyy-MM-dd").parse(strDate);
+		//System.out.println(date);
+		planMap.put(date, plan);
+		
+	}
+	
+	public String serchPlan(String strDate) throws ParseException {
+		
+		Date date = new SimpleDateFormat("yyyy-MM-dd").parse(strDate);
+		String plan = planMap.get(date);
+		return plan;
+	}
+	 
 	
 	public static boolean isLeapYear(int year) {
 
@@ -54,11 +79,12 @@ public class Calendar {
 		 
 	
 	//simple test code
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ParseException {
 		
 		Calendar cal = new Calendar();
 		
-	
+	cal.registerPlan("2020-07-08", "Let's hava dinner!");
+	System.out.println(cal.serchPlan("2020-07-08"));
 		
 		
 	}
